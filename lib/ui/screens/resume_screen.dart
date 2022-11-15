@@ -6,18 +6,19 @@ class ResumeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigoAccent,
+      backgroundColor: Colors.indigoAccent.shade400,
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(
               height: 30,
             ),
             CircleAvatar(
+              radius: 30,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100.0),
-                child: Image.asset('assets/fotico.jpg', height: 80),
+                child: Image.asset('assets/foto.jpg'),
               ),
             ),
             const SizedBox(height: 10),
@@ -30,11 +31,11 @@ class ResumeScreen extends StatelessWidget {
             const Text(
               'Aprendiz SENA',
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w300),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             const Expanded(child: _Body()),
           ],
@@ -54,36 +55,46 @@ class _Body extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 23),
+      padding: const EdgeInsets.all(18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Aprendiz SENA en Análisis y Desarrollo de Software',
+            'Soy aprendiz SENA de Análisis y Desarrollo de Software del Centro de Comercios Y Servicios que busca aprender y mejorar mis habilidades.',
             style: TextStyle(
-              letterSpacing: 2,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                wordSpacing: 3,
+                height: 1.7
             ),
           ),
           const SizedBox(
-            height: 25,
+            height: 20,
           ),
           const Text(
             'Habilidades',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 16, fontWeight: FontWeight.w900
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               getSkill(
-                  const AssetImage('assets/java.png'), Colors.yellow.shade200),
+                  const AssetImage('assets/java.png'), 'Java',
+                  Colors.yellow.shade200),
               getSkill(
-                  const AssetImage('assets/python.png'), Colors.cyan.shade100),
+                  const AssetImage('assets/python.png'), 'Python',
+                  Colors.cyan.shade100),
               getSkill(
-                  const AssetImage('assets/github.png'), Colors.green.shade100),
+                  const AssetImage('assets/github.png'), 'GitHub',
+                  Colors.green.shade100),
               getSkill(
-                  const AssetImage('assets/flutter.png'), Colors.pink.shade100)
+                  const AssetImage('assets/flutter.png'), 'Flutter',
+                  Colors.pink.shade100)
             ],
           ),
         ],
@@ -91,20 +102,26 @@ class _Body extends StatelessWidget {
     );
   }
 
-  Padding getSkill(AssetImage logo, Color color) {
-    return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Container(
-          height: 100.0,
-          width: 100.0,
+  Column getSkill(AssetImage logo, String name, Color color) {
+    return Column(children: [
+      Container(
+        height: 65.0,
+        width: 65.0,
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(7.0),
           ),
           child: Container(
-            margin: const EdgeInsets.all(20),
+          margin: const EdgeInsets.all(15),
             decoration: BoxDecoration(image: DecorationImage(image: logo)),
-          )),
-    );
+        ),
+      ),
+      Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            name,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ))
+    ]);
   }
 }

@@ -66,6 +66,7 @@ flutter:
     - assets/python.png
     - assets/github.png
     - assets/flutter.png
+    - assets/foto.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -80,6 +81,22 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Caramella
+      fonts:
+      - asset: fonts/Caramella_Regular.ttf
+
+    - family: Cocogoose
+      fonts:
+      - asset: fonts/Cocogoose-Classic-Medium-trial.ttf
+
+    - family: Gidole
+      fonts:
+      - asset: fonts/Gidole-Regular.ttf
+
+    - family: Raleway
+      fonts:
+      - asset: fonts/Raleway-VariableFont_wght.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
